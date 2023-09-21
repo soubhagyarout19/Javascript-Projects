@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    background-color: #2d4059;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #f2f2f2;
+}
+
+.root {
+    display: flex;
+    gap: 5rem;
+    padding-left: 5rem;
+    padding-top: 0;
+    margin: 0.5rem 5rem;
+    background-color: #ff5722;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.root:hover{
+    background-color: #d64b21;
+}
+.button {
+    display: flex;
+    align-items: center;
+}
+.table1{
+    display: flex;
+    padding-left: 5rem;
+    padding-top: 2rem;
+}
+.table1 > table{
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+.rows > p > input{
+    height: 2rem;
+    border-radius: 4px;
+}
+.rows > p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2rem;
+}
+.rows > p > input::placeholder{
+    text-align: center;
+}
+#btn{
+    height: 2rem;
+    background-color: #000000;
+    color: white;
+}
