@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    background-color: #E3E6E6;
+    font-family: sans-serif;
+}
+.nav-bar{
+    display: flex;
+    align-items: center;
+    background-color: #131921;
+    height: 4rem;
+    padding-left: 1rem;
+    justify-content: space-around;
+}
+#logo{
+    height: 60%;
+}
+#logo:hover,#location:hover,#cart:hover{
+    border: 1px solid white;
+}
+.search-bar {
+    display: flex;
+}
+#input{
+    height: 2.5rem;
+    width: 40rem;
+    border-style: none;
+}
+#search{
+    height: 2.6rem;
+    border-radius: 4px;
+    background-color: #FEBD69;
+    padding: 0rem 0.8rem 0rem 0.8rem;
+    border-radius: 0px 4px 4px 0px;
+    border-style: none;
+}
+#select{
+    height: 2.6rem;
+    width: 3rem;
+    border-radius: 4px 0px 0px 4px;
+    border-style: none;
+    background-color: #E6E6E6;
+    color: #666666;
+    padding: 0rem 0.2rem 0rem 0.2rem;
+}
+#select > option{
+    height: 5rem;
+    background-color: #FEBD69;
+}
+.card {
+    width: 220px;
+    height: 350px;
+    /* border: solid 1px grey; */
+    padding: 1rem;
+    /* box-shadow:rgb(186, 186, 186) 0px 13.36px 8.896px, rgb(255, 255, 255) 0px -2px 1px; */
+    background-color: white;
+    transition: transform 0.2s ease;
+    border-radius: 4px;
+}
+.card:hover{
+    transform: scale(0.950);
+}
+.card>img {
+    width: 100%;
+    height: 65%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.3s ease;
+}
+#card-image:hover{
+    transform: scale(1.1 );
+}
+.render{
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin: 2rem 3.8rem 0 3.8rem;
+}
+.card-price{
+    font-weight: 400;
+}
+.card-id{
+    font-weight: 100;
+}
+#cart{
+    color: white;
+}
+pre{
+    color: white;
+}
+#location{
+    color: rgb(255, 0, 0);
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
+}
+#location > p{
+    color: white;
+}
