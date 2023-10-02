@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="main mt-3">
+        <div class="all-buttons">
+            <button id="aBtn">All</button>
+            <button id="mBtn">Male</button>
+            <button id="fBtn">Female</button>
+        </div>
+        <div class="search mt-3">
+            <input type="text" id="inp">
+            <button id="searchBtn">Search</button>
+        </div>
+        <div class="render">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Ename</th>
+                        <th scope="col">Designation</th>
+                        <th scope="col">Age</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Location</th>
+                    </tr>
+                </thead>
+                <tbody id="render-here">
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>SDE-1</td>
+                        <td>22</td>
+                        <td>Male</td>
+                        <td>Banglore</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <script>
+        let gArray = [
+            {
+                Eid: 101,
+                ename: "John Smith",
+                designation: "Software Engineer",
+                age: 30,
+                location: "New York",
+                gender:"male"
+            },
+            {
+                Eid: 102,
+                ename: "Alice Johnson",
+                designation: "Product Manager",
+                age: 35,
+                location: "San Francisco",
+                gender:"female"
+            },
+            {
+                Eid: 103,
+                ename: "Bob Davis",
+                designation: "Data Analyst",
+                age: 28,
+                location: "Chicago",
+                gender:"male"
+            },
+            {
+                Eid: 104,
+                ename: "Emily Wilson",
+                designation: "Graphic Designer",
+                age: 26,
+                location: "Los Angeles",
+                gender:"male"
+            },
+            {
+                Eid: 105,
+                ename: "Sarah Brown",
+                designation: "Marketing Specialist",
+                age: 32,
+                location: "Houston",
+                gender:"female"
+            },
+            {
+                Eid: 106,
+                ename: "Michael Lee",
+                designation: "Accountant",
+                age: 29,
+                location: "Miami",
+                gender:"male"
+            },
+            {
+                Eid: 107,
+                ename: "Linda Johnson",
+                designation: "HR Manager",
+                age: 40,
+                location: "Dallas",
+                gender:"female"
+            },
+            {
+                Eid: 108,
+                ename: "David Wilson",
+                designation: "Sales Representative",
+                age: 27,
+                location: "Atlanta",
+                gender:"male"
+            },
+            {
+                Eid: 109,
+                ename: "Karen Davis",
+                designation: "Customer Support",
+                age: 31,
+                location: "Seattle",
+                gender:"female"
+            },
+            {
+                Eid: 110,
+                ename: "James Miller",
+                designation: "Operations Manager",
+                age: 38,
+                location: "Denver",
+                gender:"male"
+            }
+        ];
+
+        let FilteredArray = gArray;
+        let sBtn = document.getElementById("searchBtn");
+        let aBtn = document.getElementById("aBtn");
+        let mBtn = document.getElementById("mBtn");
+        let fBtn = document.getElementById("fBtn");
+
+        let x = FilteredArray.map((element) => {
+            return `<tr>
+                    <th scope="row">${element.Eid}</th>
+                    <td>${element.ename}</td>
+                    <td>${element.designation}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.location}</td>
+                  </tr>`;
+        })
+        document.getElementById("render-here").innerHTML = x.join('');
+
+        //For Search Feature
+        sBtn.addEventListener("click", () => {
+            let inp = document.getElementById("inp").value;
+            console.log(inp);
+
+            let empSearch = gArray.filter((element) => {
+                return element.ename.includes(inp);
+            })
+
+            let x = empSearch.map((element) => {
+            return `<tr>
+                    <th scope="row">${element.Eid}</th>
+                    <td>${element.ename}</td>
+                    <td>${element.designation}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.location}</td>
+                  </tr>`;
+        })
+        document.getElementById("render-here").innerHTML = x.join('');
+        })
+
+        aBtn.addEventListener("click", () => {
+            let x = FilteredArray.map((element) => {
+            return `<tr>
+                    <th scope="row">${element.Eid}</th>
+                    <td>${element.ename}</td>
+                    <td>${element.designation}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.location}</td>
+                  </tr>`;
+        })
+        document.getElementById("render-here").innerHTML = x.join('');
+        })
+
+        mBtn.addEventListener("click", () => {
+            let mFilter = gArray.filter((element) => {
+                return element.gender === "male";
+            })
+            let x = mFilter.map((element) => {
+            return `<tr>
+                    <th scope="row">${element.Eid}</th>
+                    <td>${element.ename}</td>
+                    <td>${element.designation}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.location}</td>
+                  </tr>`;
+        })
+        document.getElementById("render-here").innerHTML = x.join('');
+        })
+
+        fBtn.addEventListener("click", () => {
+            let fFilter = gArray.filter((element) => {
+                return element.gender.includes("female");
+            })
+            let x = fFilter.map((element) => {
+            return `<tr>
+                    <th scope="row">${element.Eid}</th>
+                    <td>${element.ename}</td>
+                    <td>${element.designation}</td>
+                    <td>${element.age}</td>
+                    <td>${element.gender}</td>
+                    <td>${element.location}</td>
+                  </tr>`;
+        })
+        document.getElementById("render-here").innerHTML = x.join('');
+        }) 
+    </script>
+</body>
+
+</html>
